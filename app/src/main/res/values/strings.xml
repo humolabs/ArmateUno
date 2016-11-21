@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Armate Uno</string>
+    <string name="ver_mapa">Ver mapa</string>
+    <string name="ver_convocados">Convocados</string>
+    <string name="backdrop_subtitle">TUS PRÓXIMOS PARTIDOS</string>
+
+    <string name="main_img">Header Image</string>
+</resources>

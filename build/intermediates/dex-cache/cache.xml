@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\ALE\Desktop\CardView\CardView\app\build\intermediates\exploded-aar\com.android.support\design\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="f0001e71cea6ae432a00021c6f727f5ef0f3d27e">
+        <dex dex="C:\Users\ALE\Desktop\CardView\CardView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.3.0_63a0fdb5b9b589b00c2200dca8365b4cea78d35e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ALE\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.3.0\support-annotations-23.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="db7791d75a07fef9844d06236c1c59ba7bf6997c">
+        <dex dex="C:\Users\ALE\Downloads\CardView\CardView\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.3.0_770c2535208e14b54e1b44d9ff187254a01a1f1d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ALE\Downloads\CardView\CardView\app\build\intermediates\exploded-aar\com.android.support\design\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="f0001e71cea6ae432a00021c6f727f5ef0f3d27e">
+        <dex dex="C:\Users\ALE\Downloads\CardView\CardView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.3.0_95872ba2e4fcca1e1cebd31af000d8bfc4da3916\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ALE\Desktop\CardView\CardView\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="8a034dd16c0dfd75fe86c52c2cd581592acc684a">
+        <dex dex="C:\Users\ALE\Desktop\CardView\CardView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.3.0_f6df30d67bb232ead08031afb0a6e5eaf0ac8f36\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ALE\Desktop\CardView\CardView\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\jars\libs\internal_impl-23.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
+        <dex dex="C:\Users\ALE\Desktop\CardView\CardView\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.3.0_5a263221eefab897349cdd25463c0f764e695ada\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ALE\Desktop\CardView\CardView\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="43b7d44ffe0e4929485b0b2b21f5c771fc23e323">
+        <dex dex="C:\Users\ALE\Desktop\CardView\CardView\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_7d35f01d0f3a877e937d534e90cc1bf10028195a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ALE\Downloads\CardView\CardView\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\jars\libs\internal_impl-23.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
+        <dex dex="C:\Users\ALE\Downloads\CardView\CardView\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.3.0_49150312a7b4783e838e18302ae39de1b55e5dd6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ALE\Desktop\CardView\CardView\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="adb0e74a8c0b0f9b5160112e6e317af27160bdbf">
+        <dex dex="C:\Users\ALE\Desktop\CardView\CardView\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_eb4bf1af2219c9414bead130ecb2af42472de451\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ALE\Desktop\CardView\CardView\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="82ce13fd19cdfde0e392f03c27edeba8d4333648">
+        <dex dex="C:\Users\ALE\Desktop\CardView\CardView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-23.3.0_a595196842ce286401e35f58d961a2adc1db6890\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ALE\Downloads\CardView\CardView\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="82ce13fd19cdfde0e392f03c27edeba8d4333648">
+        <dex dex="C:\Users\ALE\Downloads\CardView\CardView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-23.3.0_43589d28082441eeab2975cdc9439b9b149abd85\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ALE\Desktop\CardView\CardView\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
+        <dex dex="C:\Users\ALE\Desktop\CardView\CardView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.3.0_9a12c45e8a62c6daca39475561c011e216e14719\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ALE\Downloads\CardView\CardView\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="9bcf5edcd69b29fb8048f049713d7496163c3617">
+        <dex dex="C:\Users\ALE\Downloads\CardView\CardView\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_fb42a19d38d7006659d1598bc5d498daeefbea53\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ALE\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="C:\Users\ALE\Downloads\CardView\CardView\app\build\intermediates\transforms\dex\debug\folders\1000\10\glide-3.7.0_b7e2d45bd147c54600fcee896a4b1c28dbadc5e0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ALE\Desktop\CardView\CardView\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
+        <dex dex="C:\Users\ALE\Desktop\CardView\CardView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.3.0_7370f72d6c2fdd305b7233c52f54132eb4f2a950\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ALE\Downloads\CardView\CardView\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="debf30ce0a7560396b6235edef77e447006454c2">
+        <dex dex="C:\Users\ALE\Downloads\CardView\CardView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.3.0_db2191c48aca776e96c98b8d67cb45b494fc588b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ALE\Downloads\CardView\CardView\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
+        <dex dex="C:\Users\ALE\Downloads\CardView\CardView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.3.0_09eb7d9d81a0da8ae99ac5ce32982ee466276e7d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ALE\Desktop\CardView\CardView\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
+        <dex dex="C:\Users\ALE\Desktop\CardView\CardView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.3.0_cc62bee2e22224d7a4b8a438b56a7b3dfbdf9c64\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ALE\Desktop\CardView\CardView\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="debf30ce0a7560396b6235edef77e447006454c2">
+        <dex dex="C:\Users\ALE\Desktop\CardView\CardView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.3.0_b2532673a580bd27081ed8bbb0b3cd17f508f456\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ALE\Downloads\CardView\CardView\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="8a034dd16c0dfd75fe86c52c2cd581592acc684a">
+        <dex dex="C:\Users\ALE\Downloads\CardView\CardView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.3.0_ff47e4bd06e5b1a8525d8ca3bf5a99154d9ed0f4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ALE\Downloads\CardView\CardView\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
+        <dex dex="C:\Users\ALE\Downloads\CardView\CardView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.3.0_2252e8503ab9a988581ed7b266efe1dc4a4a1b3c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ALE\Downloads\CardView\CardView\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
+        <dex dex="C:\Users\ALE\Downloads\CardView\CardView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.3.0_50577ace4b5a8efd98e2236a1cb6b0766c08cd62\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ALE\Downloads\CardView\CardView\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="cf0f3c15022234957ba0794973f76b99582adec6">
+        <dex dex="C:\Users\ALE\Downloads\CardView\CardView\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_2677d4b3bf06e934746aee650736f4b1cd60b59b\classes.dex" />
+    </item>
+
+</items>
