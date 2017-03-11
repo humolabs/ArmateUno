@@ -18,7 +18,7 @@
  *
  */
 
-package com.truiton.cardviewexample;
+package com.humolabs.armateuno;
 
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;

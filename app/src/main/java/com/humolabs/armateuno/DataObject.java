@@ -18,7 +18,7 @@
  *
  */
 
-package com.truiton.cardviewexample;
+package com.humolabs.armateuno;
 
 public class DataObject {
     private String mText1;
