@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">CardView Example</string>
+    <string name="app_name">Armate uno</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="elegi_dia_y_hora">Elegi dia y Hora</string>
 </resources>
