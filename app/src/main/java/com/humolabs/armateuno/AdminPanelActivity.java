@@ -1,30 +1,35 @@
 package com.humolabs.armateuno;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.jjobes.slidedatetimepicker.SlideDateTimeListener;
 import com.github.jjobes.slidedatetimepicker.SlideDateTimePicker;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlacePicker;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * Created by Christus on 5/3/2017.
- */
 public class AdminPanelActivity extends FragmentActivity {
 
     EditText btnFechaHora;
+    TextView btnmapa;
+    int PLACE_PICKER_REQUEST = 1;
+
     private SimpleDateFormat mFormatter = new SimpleDateFormat("MMMM dd yyyy hh:mm aa");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.admin_panel_activity);
         super.onCreate(savedInstanceState);
-
 
         btnFechaHora = (EditText) findViewById(R.id.btnfechahora);
         btnFechaHora.setOnClickListener(new View.OnClickListener() {
@@ -42,6 +47,38 @@ public class AdminPanelActivity extends FragmentActivity {
                         .show();
             }
         });
+
+        btnmapa = (TextView) findViewById(R.id.mapa);
+        btnmapa.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
+                Intent intent;
+
+                try{
+                    intent = builder.build(getApplicationContext());
+                    startActivityForResult(intent, PLACE_PICKER_REQUEST);
+                } catch (GooglePlayServicesRepairableException e) {
+                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                } catch (GooglePlayServicesNotAvailableException e) {
+                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == PLACE_PICKER_REQUEST){
+            if(resultCode == RESULT_OK){
+                Place place = PlacePicker.getPlace(data, this);
+                String address = String.format("Place: %s", place.getAddress());
+                btnmapa.setText(address);
+            }
+        }
     }
 
     private SlideDateTimeListener listener = new SlideDateTimeListener() {

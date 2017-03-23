@@ -8,7 +8,7 @@
 
      <TableLayout
          android:layout_width="match_parent"
-         android:layout_height="match_parent">
+         android:layout_height="wrap_content">
 
           <TableRow
               android:layout_width="match_parent"
@@ -19,17 +19,24 @@
                    android:layout_height="wrap_content"
                    android:ems="10"
                    android:inputType="textPersonName"
-                   android:text="@string/elegi_dia_y_hora"/>
+                   android:text="@string/elegi_dia_y_hora" />
 
                <EditText
                    android:id="@+id/btnfechahora"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:ems="10"
-                   android:inputType="time"
                    android:clickable="true"
-                   android:focusable="false"/>
+                   android:ems="10"
+                   android:focusable="false"
+                   android:inputType="time" />
           </TableRow>
 
      </TableLayout>
+
+     <TextView
+         android:id="@+id/mapa"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="TextView" />
+
 </LinearLayout>
