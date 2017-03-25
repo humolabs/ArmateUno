@@ -57,7 +57,7 @@ public class MyRecyclerViewAdapter extends RecyclerView
     }
 
     public void setOnItemClickListener(MyClickListener myClickListener) {
-        this.myClickListener = myClickListener;
+        MyRecyclerViewAdapter.myClickListener = myClickListener;
     }
 
     public MyRecyclerViewAdapter(ArrayList<DataObject> myDataset) {
@@ -96,6 +96,6 @@ public class MyRecyclerViewAdapter extends RecyclerView
     }
 
     public interface MyClickListener {
-        public void onItemClick(int position, View v);
+        void onItemClick(int position, View v);
     }
 }
