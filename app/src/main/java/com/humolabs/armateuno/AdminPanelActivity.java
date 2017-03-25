@@ -43,7 +43,7 @@ public class AdminPanelActivity extends FragmentActivity {
     int PLACE_PICKER_REQUEST = 0;
     int PICK_CONTACT = 0;
 
-    private SimpleDateFormat mFormatter = new SimpleDateFormat(getString(R.string.fecha_y_hora_layout));
+    private SimpleDateFormat mFormatter = new SimpleDateFormat("dd/MMyyyy hh:mm aa");
 
     ListView listaConvocados;
 
