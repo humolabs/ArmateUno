@@ -10,5 +10,5 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:padding="@dimen/activity_horizontal_margin"
-        android:textColor="@color/wallet_highlighted_text_holo_dark" />
+        android:textColor="@color/cardview_light_background" />
 </LinearLayout>

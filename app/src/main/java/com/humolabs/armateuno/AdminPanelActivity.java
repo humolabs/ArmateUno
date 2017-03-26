@@ -37,8 +37,8 @@ public class AdminPanelActivity extends FragmentActivity implements View.OnClick
     TextView txtDireccion;
     Button btnListaContactos;
     Button btnVaciarListaConvocados;
-    List<String> convocados = new ArrayList<>();
-    ArrayAdapter<String> convocadosAdapter;
+    ArrayList<String> convocados = new ArrayList<>();
+    ConvocadosAdapter convocadosAdapter;
     Integer cantidadJugadores;
     ProgressBar spinner;
 
@@ -62,7 +62,7 @@ public class AdminPanelActivity extends FragmentActivity implements View.OnClick
         spinner.setVisibility(View.GONE);
 
         listaConvocados = (ListView)findViewById(R.id.simpleListView);
-        convocadosAdapter = new ArrayAdapter<>(this, R.layout.listview_contactos, R.id.textView, convocados);
+        convocadosAdapter = new ConvocadosAdapter(convocados, this);
         listaConvocados.setAdapter(convocadosAdapter);
 
         btnFechaHora = (EditText) findViewById(R.id.btnfechahora);
@@ -148,8 +148,7 @@ public class AdminPanelActivity extends FragmentActivity implements View.OnClick
     @Override
     public void onClick(View v) {
         Intent intent;
-        switch (v.getId())
-        {
+        switch (v.getId()) {
             case R.id.btnfechahora:
                 new SlideDateTimePicker.Builder(getSupportFragmentManager())
                         .setListener(listener)
@@ -177,12 +176,12 @@ public class AdminPanelActivity extends FragmentActivity implements View.OnClick
                 break;
             case R.id.btnListaContactos:
                 String checkJugadores = inputCantJugadores.getText().toString();
-                if(!checkJugadores.matches("")) {
+                if (!checkJugadores.matches("")) {
                     PICK_CONTACT = 1;
                     cantidadJugadores = Integer.parseInt(checkJugadores);
                     intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
                     startActivityForResult(intent, PICK_CONTACT);
-                }else{
+                } else {
                     Toast.makeText(getApplicationContext(), "Debe ingresar una cantidad de jugadores", Toast.LENGTH_SHORT).show();
                 }
                 break;
