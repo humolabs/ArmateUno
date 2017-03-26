@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
      xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:orientation="vertical"
      android:layout_width="match_parent"
      android:padding="8dp"
      android:layout_height="match_parent">
@@ -15,32 +15,27 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent">
 
-             <ProgressBar
-                 android:id="@+id/progressBar1"
-                 style="?android:attr/progressBarStyleLarge"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_centerHorizontal="true"
-                 android:layout_weight="1"/>
-
          </TableRow>
          <TableRow
               android:layout_width="match_parent"
               android:layout_height="match_parent">
+
                <TextView
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:ems="10"
                    android:inputType="textPersonName"
                    android:text="@string/elegi_dia_y_hora" />
-               <EditText
-                   android:id="@+id/btnfechahora"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:clickable="true"
-                   android:ems="10"
-                   android:focusable="false"
-                   android:inputType="time" />
+
+             <EditText
+                 android:id="@+id/btnfechahora"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:clickable="true"
+                 android:ems="10"
+                 android:focusable="false"
+                 android:inputType="time"
+                 android:textAlignment="center" />
           </TableRow>
 
          <TableRow
@@ -53,7 +48,18 @@
                  android:ems="10"
                  android:inputType="text"
                  android:text="@string/busca_la_cancha" />
+
              <RelativeLayout>
+                 <ProgressBar
+                     android:id="@+id/progressBar1"
+                     style="?android:attr/progressBarStyleSmallTitle"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="1"
+                     android:layout_centerVertical="true"
+                     android:layout_toRightOf="@+id/mapa"
+                     android:layout_toEndOf="@+id/mapa" />
+
                  <ImageButton
                      android:id="@+id/mapa"
                      android:layout_width="wrap_content"
@@ -62,24 +68,6 @@
                      android:contentDescription="@string/icono_de_mapa"
                      android:scaleType="center" />
              </RelativeLayout>
-         </TableRow>
-
-         <TableRow
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
-
-             <TextView
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:ems="10"
-                 android:inputType="text"
-                 android:text="@string/cantidad_de_jugadores" />
-
-             <EditText
-                 android:id="@+id/inputCantJugadores"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:inputType="number" />
          </TableRow>
 
          <RelativeLayout
@@ -111,7 +99,28 @@
                  android:id="@+id/inputPrecioCancha"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
-                 android:inputType="number" />
+                 android:inputType="number"
+                 android:textAlignment="center" />
+
+         </TableRow>
+
+         <TableRow
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:ems="10"
+                 android:inputType="text"
+                 android:text="@string/cantidad_de_jugadores" />
+
+             <EditText
+                 android:id="@+id/inputCantJugadores"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:inputType="number"
+                 android:textAlignment="center" />
          </TableRow>
 
          <TableRow
@@ -123,12 +132,11 @@
                 android:layout_height="wrap_content"
                 android:text="@string/lista_de_contactos" />
 
-            <Button
-                android:id="@+id/btnVaciarLista"
-                android:layout_width="wrap_content"
-                android:textAlignment="center"
-                android:layout_height="wrap_content"
-                android:text="@string/vaciar_lista" />
+             <Button
+                 android:id="@+id/btnVaciarLista"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="@string/vaciar_lista" />
          </TableRow>
 
      </TableLayout>
@@ -140,7 +148,7 @@
        android:divider="@color/material_blue_grey_800"
        android:dividerHeight="1dp" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -150,8 +158,9 @@
             android:id="@+id/btnGuardarPartido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:text="@string/aceptar" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>

@@ -32,10 +32,10 @@ import java.util.List;
 public class AdminPanelActivity extends FragmentActivity implements View.OnClickListener{
 
     EditText btnFechaHora;
+    EditText inputCantJugadores;
     ImageView btnMapa;
     TextView txtDireccion;
     Button btnListaContactos;
-    EditText inputCantJugadores;
     Button btnVaciarListaConvocados;
     List<String> convocados = new ArrayList<>();
     ArrayAdapter<String> convocadosAdapter;
@@ -45,7 +45,7 @@ public class AdminPanelActivity extends FragmentActivity implements View.OnClick
     int PLACE_PICKER_REQUEST = 0;
     int PICK_CONTACT = 0;
 
-    private SimpleDateFormat mFormatter = new SimpleDateFormat("dd/MMyyyy hh:mm aa");
+    private SimpleDateFormat mFormatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
     ListView listaConvocados;
 
@@ -141,7 +141,7 @@ public class AdminPanelActivity extends FragmentActivity implements View.OnClick
         @Override
         public void onDateTimeCancel()
         {
-            Toast.makeText(AdminPanelActivity.this, "Canceled", Toast.LENGTH_SHORT).show();
+            Toast.makeText(AdminPanelActivity.this, "Cancelled", Toast.LENGTH_SHORT).show();
         }
     };
 
@@ -157,7 +157,7 @@ public class AdminPanelActivity extends FragmentActivity implements View.OnClick
                         //.setMinDate(minDate)
                         //.setMaxDate(maxDate)
                         //.setIs24HourTime(true)
-                        //.setTheme(SlideDateTimePicker.HOLO_DARK)
+                        .setTheme(SlideDateTimePicker.HOLO_DARK)
                         //.setIndicatorColor(Color.parseColor("#990000"))
                         .build()
                         .show();
@@ -189,6 +189,9 @@ public class AdminPanelActivity extends FragmentActivity implements View.OnClick
             case R.id.btnVaciarLista:
                 convocados.clear();
                 convocadosAdapter.notifyDataSetChanged();
+                break;
+            case R.id.btnGuardarPartido:
+
         }
     }
 }

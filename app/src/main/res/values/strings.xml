@@ -1,14 +1,19 @@
 <resources>
     <string name="app_name">Armate uno</string>
 
-    <string name="elegi_dia_y_hora">Elegi dia y Hora</string>
     <string name="google_api_key">AIzaSyDaFi_THKg3edCMY2HVtMNCR1Z2jrueAJo</string>
+
+    <string name="aceptar">Aceptar</string>
+    <string name="cancelar">Cancelar</string>
+
+    /* Creacion de nuevo partido */
+    <string name="elegi_dia_y_hora">Elegi dia y hora</string>
     <string name="busca_la_cancha">Buscá la cancha</string>
     <string name="icono_de_mapa">Icono de mapa</string>
     <string name="lista_de_contactos">Lista de contactos</string>
     <string name="vaciar_lista">Vaciar lista</string>
     <string name="cantidad_de_jugadores">Cantidad de jugadores</string>
-    <string name="aceptar">Aceptar</string>
     <string name="fecha_y_hora_layout">dd/MMyyyy hh:mm aa</string>
-    <string name="costo_cancha">Costo cancha</string>
+    <string name="costo_cancha">Costo de la cancha</string>
+
 </resources>
