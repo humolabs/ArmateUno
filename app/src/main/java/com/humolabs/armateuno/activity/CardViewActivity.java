@@ -18,7 +18,7 @@
  *
  */
 
-package com.humolabs.armateuno;
+package com.humolabs.armateuno.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -26,6 +26,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+
+import com.humolabs.armateuno.domain.DataObject;
+import com.humolabs.armateuno.R;
 
 import java.util.ArrayList;
 
@@ -72,8 +75,7 @@ public class CardViewActivity extends Activity {
     private ArrayList<DataObject> getDataSet() {
         ArrayList results = new ArrayList<DataObject>();
         for (int index = 0; index < 20; index++) {
-            DataObject obj = new DataObject("Some Primary Text " + index,
-                    "Secondary " + index);
+            DataObject obj = new DataObject("Some Primary Text " + index, "Secondary " + index);
             results.add(index, obj);
         }
         return results;

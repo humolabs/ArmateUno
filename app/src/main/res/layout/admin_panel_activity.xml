@@ -15,6 +15,24 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent">
 
+             <TextView
+                 android:id="@+id/txtNombreCancha"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:ems="10"
+                 android:inputType="text"
+                 android:text="@string/nombre_de_la_cancha" />
+
+             <EditText
+                 android:id="@+id/inputNombreCancha"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:clickable="true"
+                 android:ems="10"
+                 android:focusable="false"
+                 android:inputType="time"
+                 android:textAlignment="center" />
+
          </TableRow>
          <TableRow
               android:layout_width="match_parent"
@@ -24,7 +42,7 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:ems="10"
-                   android:inputType="textPersonName"
+                   android:inputType="text"
                    android:text="@string/elegi_dia_y_hora" />
 
              <EditText
@@ -142,7 +160,7 @@
      </TableLayout>
 
     <ListView
-       android:id="@+id/simpleListView"
+       android:id="@+id/playerList"
        android:layout_width="fill_parent"
        android:layout_height="wrap_content"
        android:divider="@color/material_blue_grey_800"

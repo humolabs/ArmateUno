@@ -18,7 +18,7 @@
  *
  */
 
-package com.humolabs.armateuno;
+package com.humolabs.armateuno.activity;
 
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -26,6 +26,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.humolabs.armateuno.domain.DataObject;
+import com.humolabs.armateuno.R;
 
 import java.util.ArrayList;
 
