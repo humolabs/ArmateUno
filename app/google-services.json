@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "955320825514",
+    "firebase_url": "https://fulbitobuilder.firebaseio.com",
+    "project_id": "fulbitobuilder",
+    "storage_bucket": "fulbitobuilder.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:955320825514:android:2bbb8a38560e68e3",
+        "android_client_info": {
+          "package_name": "com.humolabs.armateuno"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "955320825514-kp2g99d6oraem5cvtrk5s22mb1tdu8ba.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.humolabs.armateuno",
+            "certificate_hash": "a61255b892cf5cd01316c9f9a87104d6929b0967"
+          }
+        },
+        {
+          "client_id": "955320825514-s06bu00odpsdfj2udph8itiofht9ec47.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFG-rrkdw4CNhhoGf9oZXqJgGIic9vsgk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "955320825514-s06bu00odpsdfj2udph8itiofht9ec47.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
