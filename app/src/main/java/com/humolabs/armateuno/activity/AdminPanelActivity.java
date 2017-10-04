@@ -31,9 +31,13 @@ import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.humolabs.armateuno.R;
+import com.humolabs.armateuno.domain.Jugador;
+import com.humolabs.armateuno.domain.User;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -46,7 +50,7 @@ public class AdminPanelActivity extends FragmentActivity implements View.OnClick
     static final String TAG = "AdminPanelActivity";
     static final Integer READ_CONTACT_PERMISSION = 1;
 
-    private StorageReference mStorageRef;
+    private FirebaseDatabase database;
 
     EditText btnDateHour;
     EditText inputPlayerQuantity;
@@ -69,52 +73,19 @@ public class AdminPanelActivity extends FragmentActivity implements View.OnClick
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.admin_panel_activity);
-        mStorageRef = FirebaseStorage.getInstance().getReference();
+        User user = new User("usuario1", "asd123");
         super.onCreate(savedInstanceState);
         initializeComponents();
-        //initializeFirebase();
+        initializeFirebase(user);
     }
-    /*
-    private void initializeFirebase() {
-        // Get a database reference to our posts
-        // Get a reference to our posts
-        Firebase ref = new Firebase("https://fulbitobuilder.firebaseio.com");
-        // Attach an listener to read the data at our posts reference
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                System.out.println(snapshot.getValue());
-                Log.e(TAG,""+snapshot.getChildrenCount());
 
-                List<String> playersUsers = new ArrayList<String>();
-                List<Jugador> jugadores = new ArrayList<Jugador>();
-
-                for (DataSnapshot partidoSnapshot: snapshot.getChildren()) {
-
-                    Partido partido = partidoSnapshot.getValue(Partido.class);
-
-                    EditText textNomCancha = (EditText) findViewById(R.id.inputNombreCancha);
-                    textNomCancha.setText(partido.getCancha().getNombre());
-
-                    EditText textHrPartido = (EditText) findViewById(R.id.btnfechahora);
-                    textHrPartido.setText(partido.getHorario());
-
-                    for(Jugador jugador : partido.getJugadores()){
-                        playersUsers.add(jugador.getUsuario());
-                    }
-                }
-
-                ListView listViewJugadores = (ListView) findViewById(R.id.playerList);
-                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, playersUsers);
-                listViewJugadores.setAdapter(arrayAdapter);
-            }
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-                System.out.println("The read failed: " + firebaseError.getMessage());
-            }
-        });
+    private void initializeFirebase(User user) {
+        database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference("usuarios");
+        Jugador jugador = new Jugador("toto", "1140317830");
+        reference.setValue(jugador);
     }
-    */
+
     private void initializeComponents() {
 
         spinner = (ProgressBar)findViewById(R.id.progressBar1);
