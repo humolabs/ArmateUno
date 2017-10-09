@@ -31,13 +31,10 @@ import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 import com.humolabs.armateuno.R;
-import com.humolabs.armateuno.domain.Jugador;
-import com.humolabs.armateuno.domain.User;
+import com.humolabs.armateuno.domain.Cancha;
+import com.humolabs.armateuno.domain.Partido;
+import com.humolabs.armateuno.domain.Ubicacion;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -50,18 +47,19 @@ public class AdminPanelActivity extends FragmentActivity implements View.OnClick
     static final String TAG = "AdminPanelActivity";
     static final Integer READ_CONTACT_PERMISSION = 1;
 
-    private FirebaseDatabase database;
-
     EditText btnDateHour;
     EditText inputPlayerQuantity;
     ImageView btnMap;
     TextView txtAddress;
+    TextView txtNombreCancha;
     Button btnContactList;
     Button btnCleanPlayersList;
+    Button btnGuardarPartido;
     List<String> playerList = new ArrayList<>();
     ArrayAdapter<String> playersAdapter;
     Integer playersQuantity;
     ProgressBar spinner;
+    Place place;
 
     int PLACE_PICKER_REQUEST = 0;
     int PICK_CONTACT = 0;
@@ -73,17 +71,8 @@ public class AdminPanelActivity extends FragmentActivity implements View.OnClick
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.admin_panel_activity);
-        User user = new User("usuario1", "asd123");
         super.onCreate(savedInstanceState);
         initializeComponents();
-        initializeFirebase(user);
-    }
-
-    private void initializeFirebase(User user) {
-        database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReference("usuarios");
-        Jugador jugador = new Jugador("toto", "1140317830");
-        reference.setValue(jugador);
     }
 
     private void initializeComponents() {
@@ -110,6 +99,11 @@ public class AdminPanelActivity extends FragmentActivity implements View.OnClick
 
         btnCleanPlayersList = (Button) findViewById(R.id.btnVaciarLista);
         btnCleanPlayersList.setOnClickListener(this);
+
+        btnGuardarPartido = (Button) findViewById(R.id.btnGuardarPartido);
+        btnGuardarPartido.setOnClickListener(this);
+
+        txtNombreCancha = (TextView) findViewById(R.id.txtNombreCancha);
     }
 
 
@@ -144,7 +138,7 @@ public class AdminPanelActivity extends FragmentActivity implements View.OnClick
             if(resultCode == RESULT_OK){
 
                 spinner.setVisibility(View.GONE);
-                Place place = PlacePicker.getPlace(data, this);
+                place = PlacePicker.getPlace(this, data);
                 String address = String.format("%s", place.getAddress());
                 txtAddress = (TextView) findViewById(R.id.txtDireccion);
                 txtAddress.setText(address);
@@ -245,8 +239,19 @@ public class AdminPanelActivity extends FragmentActivity implements View.OnClick
                 playersAdapter.notifyDataSetChanged();
                 break;
             case R.id.btnGuardarPartido:
+                FirebaseDataHandler dataHandler = new FirebaseDataHandler();
+                dataHandler.savePartido(buildFulbacho(), getApplicationContext());
                 break;
         }
+    }
+
+    private Partido buildFulbacho() {
+        Partido partido = new Partido();
+        partido.setUbicacion(new Ubicacion(place));
+        partido.setHorario(btnDateHour.getText().toString());
+        String domicilio = place.getAddress().toString();
+        partido.setCancha(new Cancha(txtNombreCancha.getText().toString(), domicilio, Integer.parseInt(inputPlayerQuantity.getText().toString())));
+        return partido;
     }
 
     private void pickContact() {

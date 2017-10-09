@@ -6,20 +6,18 @@ public class Partido {
         private Cancha cancha;
 
         private String fechaHora;
-        private Place place;
+        private Ubicacion ubicacion;
         private List<Jugador> jugadores;
-        private Jugador owner;
 
     public Partido(){
 
     }
 
-    public Partido(Cancha cancha, String horario, Place place, List<Jugador> jugadores, Jugador owner) {
+    public Partido(Cancha cancha, String horario, Ubicacion ubicacion, List<Jugador> jugadores) {
         this.cancha = cancha;
         this.fechaHora = horario;
-        this.place = place;
+        this.ubicacion = ubicacion;
         this.jugadores = jugadores;
-        this.owner = owner;
     }
 
     public Cancha getCancha() {
@@ -38,12 +36,12 @@ public class Partido {
         this.fechaHora = horario;
     }
 
-    public Place getPlace() {
-        return place;
+    public Ubicacion getUbicacion() {
+        return ubicacion;
     }
 
-    public void setPlace(Place place) {
-        this.place = place;
+    public void setUbicacion(Ubicacion ubicacion) {
+        this.ubicacion = ubicacion;
     }
 
     public List<Jugador> getJugadores() {
@@ -53,8 +51,4 @@ public class Partido {
     public void setJugadores(List<Jugador> jugadores) {
         this.jugadores = jugadores;
     }
-
-    public Jugador getOwner() { return owner; }
-
-    public void setOwner (Jugador owner) { this.owner = owner; }
 }

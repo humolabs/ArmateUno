@@ -4,17 +4,15 @@ public class Cancha {
     private String nombre;
     private String direccion;
     private Integer capacidad;
-    private String tipo;
 
     public Cancha(){
 
     }
 
-    public Cancha(String nombre, String direccion, Integer capacidad, String tipo) {
+    public Cancha(String nombre, String direccion, Integer capacidad) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.capacidad = capacidad;
-        this.tipo = tipo;
     }
 
     public String getNombre() {
@@ -39,13 +37,5 @@ public class Cancha {
 
     public void setCapacidad(Integer capacidad) {
         this.capacidad = capacidad;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
     }
 }

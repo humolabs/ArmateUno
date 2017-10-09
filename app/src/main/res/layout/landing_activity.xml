@@ -31,7 +31,7 @@
             android:layout_height="fill_parent"
             android:layout_gravity="left"
             android:background="#88FF0000"
-            android:text="Tus próximos partidos"/>
+            android:text="Tus próximos partidosCreados"/>
 
         <TextView
             android:id="@+id/btnPanelAdmin"

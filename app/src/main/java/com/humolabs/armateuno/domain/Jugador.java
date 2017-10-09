@@ -1,6 +1,6 @@
 package com.humolabs.armateuno.domain;
 
-public class Jugador {
+public class Jugador{
 
     private User user;
     private String name;
