@@ -1,44 +1,31 @@
 package com.humolabs.armateuno.domain;
 
-import com.google.android.gms.location.places.Place;
-
 public class Ubicacion {
-    private String latitud;
-    private String longitud;
-    private Place place;
+    private String latLong;
+    private String direccion;
 
-    public Ubicacion(Place place){
-        this.place = place;
+    public Ubicacion(String latLong, String direccion) {
+        this.latLong = latLong;
+        this.direccion = direccion;
     }
 
     public Ubicacion(){
 
     }
 
-    public Ubicacion(String latitud, String longitud) {
-        this.latitud = latitud;
-        this.longitud = longitud;
+    public String getLatLong() {
+        return latLong;
     }
 
-    public String getLatitud() {
-        return latitud;
-    }
-    public void setLatitud(String latitud) {
-        this.latitud = latitud;
-    }
-    public String getLongitud() {
-        return longitud;
-    }
-    public void setLongitud(String longitud) {
-        this.longitud = longitud;
+    public void setLatLong(String latLong) {
+        this.latLong = latLong;
     }
 
-    public Place getPlace() {
-        return place;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setPlace(Place place) {
-        this.place = place;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
-
 }

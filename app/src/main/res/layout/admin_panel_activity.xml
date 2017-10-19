@@ -159,11 +159,11 @@
      </TableLayout>
 
     <ListView
-       android:id="@+id/playerList"
-       android:layout_width="fill_parent"
-       android:layout_height="wrap_content"
-       android:divider="@color/material_blue_grey_800"
-       android:dividerHeight="1dp" />
+        android:id="@+id/playerList"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/cardview_light_background"
+        android:dividerHeight="1dp"/>
 
     <RelativeLayout
         android:layout_width="match_parent"

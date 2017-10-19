@@ -4,9 +4,7 @@ import java.util.List;
 
 public class Partido {
         private Cancha cancha;
-
         private String fechaHora;
-        private Ubicacion ubicacion;
         private List<Jugador> jugadores;
 
     public Partido(){
@@ -16,7 +14,6 @@ public class Partido {
     public Partido(Cancha cancha, String horario, Ubicacion ubicacion, List<Jugador> jugadores) {
         this.cancha = cancha;
         this.fechaHora = horario;
-        this.ubicacion = ubicacion;
         this.jugadores = jugadores;
     }
 
@@ -34,14 +31,6 @@ public class Partido {
 
     public void setHorario(String horario) {
         this.fechaHora = horario;
-    }
-
-    public Ubicacion getUbicacion() {
-        return ubicacion;
-    }
-
-    public void setUbicacion(Ubicacion ubicacion) {
-        this.ubicacion = ubicacion;
     }
 
     public List<Jugador> getJugadores() {

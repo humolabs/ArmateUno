@@ -3,6 +3,7 @@ package com.humolabs.armateuno.activity;
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -31,10 +32,15 @@ import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.humolabs.armateuno.R;
 import com.humolabs.armateuno.domain.Cancha;
+import com.humolabs.armateuno.domain.Jugador;
 import com.humolabs.armateuno.domain.Partido;
 import com.humolabs.armateuno.domain.Ubicacion;
+import com.humolabs.armateuno.domain.User;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -49,9 +55,9 @@ public class AdminPanelActivity extends FragmentActivity implements View.OnClick
 
     EditText btnDateHour;
     EditText inputPlayerQuantity;
+    EditText inputNombreCancha;
     ImageView btnMap;
     TextView txtAddress;
-    TextView txtNombreCancha;
     Button btnContactList;
     Button btnCleanPlayersList;
     Button btnGuardarPartido;
@@ -60,6 +66,10 @@ public class AdminPanelActivity extends FragmentActivity implements View.OnClick
     Integer playersQuantity;
     ProgressBar spinner;
     Place place;
+
+    FirebaseDatabase database;
+    DatabaseReference reference;
+    Context applicationContext;
 
     int PLACE_PICKER_REQUEST = 0;
     int PICK_CONTACT = 0;
@@ -72,7 +82,13 @@ public class AdminPanelActivity extends FragmentActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.admin_panel_activity);
         super.onCreate(savedInstanceState);
+        initializeFirebase();
         initializeComponents();
+    }
+
+    private void initializeFirebase(){
+        database = FirebaseDatabase.getInstance();
+        reference = database.getReference("usuarios");
     }
 
     private void initializeComponents() {
@@ -101,11 +117,10 @@ public class AdminPanelActivity extends FragmentActivity implements View.OnClick
         btnCleanPlayersList.setOnClickListener(this);
 
         btnGuardarPartido = (Button) findViewById(R.id.btnGuardarPartido);
-        btnGuardarPartido.setOnClickListener(this);
+        btnGuardarPartido.setOnClickListener(guardarPartido);
 
-        txtNombreCancha = (TextView) findViewById(R.id.txtNombreCancha);
+        inputNombreCancha = (EditText) findViewById(R.id.inputNombreCancha);
     }
-
 
     AdapterView.OnItemClickListener deleteContactFromList = new AdapterView.OnItemClickListener()
     {
@@ -128,6 +143,48 @@ public class AdminPanelActivity extends FragmentActivity implements View.OnClick
             dialog.show();
         }
     };
+
+    View.OnClickListener guardarPartido = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            try {
+                savePartido(buildFulbacho());
+                Toast.makeText(getApplicationContext(), "ok!", Toast.LENGTH_LONG).show();
+            }catch(Exception e){
+                Log.e(TAG, e.getMessage());
+                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+            Intent home =  new Intent(AdminPanelActivity.this, LandingActivity.class);
+            startActivity(home);
+        }
+    };
+
+    private Partido buildFulbacho() {
+        Partido partido = new Partido();
+        partido.setHorario(btnDateHour.getText().toString());
+        Cancha cancha = new Cancha();
+        cancha.setCapacidad(Integer.parseInt(inputPlayerQuantity.getText().toString()));
+        cancha.setNombre(inputNombreCancha.getText().toString());
+        Ubicacion ubicacion = new Ubicacion();
+        ubicacion.setDireccion(place.getAddress().toString());
+        ubicacion.setLatLong(place.getLatLng().toString());
+
+        List<Jugador> jugadores = new ArrayList<>();
+        for(String playerBaseString : playerList){
+            Jugador jugador = generarJugador(playerBaseString);
+            jugadores.add(jugador);
+        }
+        partido.setJugadores(jugadores);
+        partido.setCancha(cancha);
+        return partido;
+    }
+
+    private Jugador generarJugador(String playerBaseString) {
+        String nombre = playerBaseString.split("\\s+")[0];
+        String celular = playerBaseString.split("\\s+")[1];
+        return new Jugador(nombre, celular);
+    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -206,7 +263,7 @@ public class AdminPanelActivity extends FragmentActivity implements View.OnClick
                 new SlideDateTimePicker.Builder(getSupportFragmentManager())
                         .setListener(listener)
                         .setInitialDate(new Date())
-                        //.setMinDate(minDate)
+                        .setMinDate(new Date())
                         //.setMaxDate(maxDate)
                         //.setIs24HourTime(true)
                         .setTheme(SlideDateTimePicker.HOLO_DARK)
@@ -238,20 +295,7 @@ public class AdminPanelActivity extends FragmentActivity implements View.OnClick
                 playerList.clear();
                 playersAdapter.notifyDataSetChanged();
                 break;
-            case R.id.btnGuardarPartido:
-                FirebaseDataHandler dataHandler = new FirebaseDataHandler();
-                dataHandler.savePartido(buildFulbacho(), getApplicationContext());
-                break;
         }
-    }
-
-    private Partido buildFulbacho() {
-        Partido partido = new Partido();
-        partido.setUbicacion(new Ubicacion(place));
-        partido.setHorario(btnDateHour.getText().toString());
-        String domicilio = place.getAddress().toString();
-        partido.setCancha(new Cancha(txtNombreCancha.getText().toString(), domicilio, Integer.parseInt(inputPlayerQuantity.getText().toString())));
-        return partido;
     }
 
     private void pickContact() {
@@ -280,5 +324,30 @@ public class AdminPanelActivity extends FragmentActivity implements View.OnClick
             // other 'case' lines to check for other
             // permissions this app might request
         }
+    }
+
+    public void savePartido(Partido partido) throws Exception{
+        User user = new User("usuario1", "asd123");
+
+        if (user.getPartidosCreados() == null || user.getPartidosCreados().isEmpty()) {
+            List<Partido> partidos = new ArrayList<>();
+            user.setPartidosCreados(partidos);
+        }
+        user.getPartidosCreados().add(partido);
+
+        getReference().push().setValue(user, new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                if (databaseError != null) {
+                    Toast.makeText(getApplicationContext(), "Data could not be saved " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Data saved successfully.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    public DatabaseReference getReference() {
+        return reference;
     }
 }

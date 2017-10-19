@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:padding="@dimen/activity_horizontal_margin"
-        android:textColor="@color/cardview_shadow_end_color"
+        android:textColor="@color/wallet_bright_foreground_holo_dark"
         android:layout_toLeftOf="@+id/btnDeleteItem"
         android:layout_toStartOf="@+id/btnDeleteItem" />
 
