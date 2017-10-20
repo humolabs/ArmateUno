@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.humolabs.armateuno.R;
+import com.humolabs.armateuno.domain.User;
 
 
 /**
@@ -19,12 +20,15 @@ public class LandingActivity extends AppCompatActivity {
     TextView btnProxPartidos;
     TextView btnPanelAdmin;
 
+    User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.landing_activity);
 
+        user.setUserName("usuario1");
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);
 
@@ -39,6 +43,7 @@ public class LandingActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(LandingActivity.this, AdminPanelActivity.class);
+            intent.putExtra("USERNAME", user.getUserName());
             startActivity(intent);
         }
     };
@@ -47,6 +52,7 @@ public class LandingActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(LandingActivity.this, CardViewActivity.class);
+            intent.putExtra("USERNAME", user.getUserName());
             LandingActivity.this.startActivity(intent);
         }
     };

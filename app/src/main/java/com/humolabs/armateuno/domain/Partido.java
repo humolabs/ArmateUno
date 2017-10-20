@@ -5,6 +5,7 @@ import java.util.List;
 public class Partido {
         private Cancha cancha;
         private String fechaHora;
+        private String userCreador;
         private List<Jugador> jugadores;
 
     public Partido(){
@@ -40,4 +41,21 @@ public class Partido {
     public void setJugadores(List<Jugador> jugadores) {
         this.jugadores = jugadores;
     }
+
+    public String getFechaHora() {
+        return fechaHora;
+    }
+
+    public void setFechaHora(String fechaHora) {
+        this.fechaHora = fechaHora;
+    }
+
+    public String getUserCreador() {
+        return userCreador;
+    }
+
+    public void setUserCreador(String userCreador) {
+        this.userCreador = userCreador;
+    }
+
 }

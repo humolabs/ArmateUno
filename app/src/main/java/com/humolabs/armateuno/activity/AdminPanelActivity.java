@@ -3,7 +3,6 @@ package com.humolabs.armateuno.activity;
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -40,7 +39,6 @@ import com.humolabs.armateuno.domain.Cancha;
 import com.humolabs.armateuno.domain.Jugador;
 import com.humolabs.armateuno.domain.Partido;
 import com.humolabs.armateuno.domain.Ubicacion;
-import com.humolabs.armateuno.domain.User;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -67,9 +65,10 @@ public class AdminPanelActivity extends FragmentActivity implements View.OnClick
     ProgressBar spinner;
     Place place;
 
+    String username;
+
     FirebaseDatabase database;
     DatabaseReference reference;
-    Context applicationContext;
 
     int PLACE_PICKER_REQUEST = 0;
     int PICK_CONTACT = 0;
@@ -82,13 +81,14 @@ public class AdminPanelActivity extends FragmentActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.admin_panel_activity);
         super.onCreate(savedInstanceState);
+        username = getIntent().getStringExtra("USERNAME");
         initializeFirebase();
         initializeComponents();
     }
 
     private void initializeFirebase(){
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference("usuarios");
+        reference = database.getReference("partidos");
     }
 
     private void initializeComponents() {
@@ -327,15 +327,9 @@ public class AdminPanelActivity extends FragmentActivity implements View.OnClick
     }
 
     public void savePartido(Partido partido) throws Exception{
-        User user = new User("usuario1", "asd123");
+        partido.setUserCreador(username);
 
-        if (user.getPartidosCreados() == null || user.getPartidosCreados().isEmpty()) {
-            List<Partido> partidos = new ArrayList<>();
-            user.setPartidosCreados(partidos);
-        }
-        user.getPartidosCreados().add(partido);
-
-        getReference().push().setValue(user, new DatabaseReference.CompletionListener() {
+        getReference().push().setValue(partido, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                 if (databaseError != null) {
